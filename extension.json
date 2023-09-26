@@ -1,0 +1,160 @@
+{
+	"manifest_version": 2,
+	"name": "UniversalCourseRecommendation",
+	"namemsg": "ext-ucr-name",
+	"type": "specialpage",
+	"author": [
+		"Winston Sung",
+		"..."
+	],
+	"version": "0.1.0",
+	"url": "https://github.com/WinstonSung/mediawiki-extensions-UniversalCourseRecommendation",
+	"descriptionmsg": "ext-ucr-desc",
+	"license-name": "GPL-2.0-or-later",
+	"requires": {
+		"MediaWiki": ">= 1.39.0"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources"
+	},
+	"ResourceModules": {
+		"ext.gcr.common": {
+			"packageFiles": [
+				"js/ext.gcr.core.js"
+			],
+			"styles": [
+				"css/ext.gcr.core.css"
+			],
+			"messages": [
+			]
+		},
+		"ext.gcr.special.courserecommendations": {
+			"dependencies": [
+				"ext.translate.base",
+				"ext.translate.statsbar",
+				"ext.uls.interface",
+				"ext.uls.pt",
+				"mediawiki.Uri",
+				"mediawiki.language",
+				"mediawiki.util"
+			],
+			"packageFiles": [
+				"js/ext.gcr.special.courserecommendations.js"
+			],
+			"styles": [
+				"css/ext.gcr.special.courserecommendations.css"
+			],
+			"messages": [
+				"site-name"
+			]
+		}
+	},
+	"GroupPermissions": {
+		"*": {
+			"course-create": false,
+			"course-edit": false,
+			"location-create": false,
+			"location-edit": false,
+			"teacher-create": false,
+			"teacher-edit": false
+		},
+		"ucradmin": {
+			"course-create": true,
+			"course-edit": true,
+			"location-create": true,
+			"location-edit": true,
+			"teacher-create": true,
+			"teacher-edit": true
+		}
+	},
+	"GrantPermissions": {
+		"editinterface": {
+			"course-create": true,
+			"course-edit": true,
+			"location-create": true,
+			"location-edit": true,
+			"teacher-create": true,
+			"teacher-edit": true
+		}
+	},
+	"AvailableRights": [
+		"course-create",
+		"course-edit",
+		"location-create",
+		"location-edit",
+		"teacher-create",
+		"teacher-edit"
+	],
+	"ContentHandlers": {
+		"CONTENT_MODEL_GCRCOURSE": {
+			"class": "GCRCourseContentHandler",
+			"services": [
+			]
+		},
+		"CONTENT_MODEL_LOCATION": {
+			"class": "GCRLocationContentHandler",
+			"services": [
+			]
+		},
+		"CONTENT_MODEL_TEACHER": {
+			"class": "GCRTeacherContentHandler",
+			"services": [
+			]
+		}
+	},
+	"ExtensionMessagesFiles": {
+		"UCRAlias": "UCR.i18n.alias.php"
+	},
+	"MessagesDirs": {
+		"UniversalCourseRecommendation": [
+			"i18n",
+			"i18n/api",
+			"i18n/course-tku",
+			"i18n/location-tku",
+			"i18n/teacher-tku"
+		]
+	},
+	"SpecialPages": {
+		"CourseRecommendations": {
+			"class": "MediaWiki\\Extension\\UCR\\Specials\\SpecialCourseRecommendations",
+			"services": [
+			]
+		}
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\UCR\\": "includes/"
+	},
+	"TestAutoloadNamespaces": {
+	},
+	"Hooks": {
+	},
+	"HookHandlers": {
+		"UCRHooks": {
+			"class": "MediaWiki\\Extension\\UCR\\Hooks",
+			"services": [
+			]
+		}
+	},
+	"Actions": {
+	},
+	"APIModules": {
+		"ucraction": {
+			"class": "\\UCR\\Api\\UCRAction"
+		},
+		"ucrsearch": {
+			"class": "\\UCR\\Api\\UCRSearch"
+		}
+	},
+	"RestRoutes": {
+	},
+	"config": {
+		"UCRMainPageUseSpecialCourseRecommendations": {
+			"description": "Use Special:CourseRecommendations as the main page.",
+			"value": true
+		},
+		"UCRMaxCourseTiles": {
+			"description": "Maximum non-collapsed course tiles on Special:CourseRecommendations.",
+			"value": 12
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"ext-ucr-name": "通用課程推薦系統（Universal Course Recommendation）",
+	"special-course-recommendations-main-page-title": "首頁",
+	"special-course-recommendations-search-placeholder": "搜尋並查看推薦課程",
+	"special-course-recommendations-search-button": "搜尋"
+}

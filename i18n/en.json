@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"site-name": "{{SITENAME}}",
+	"ext-ucr-name": "Universal Course Recommendation",
+	"ext-ucr-desc": "An extension for Course Recommendation, originally designated for Tamkang University (TKU) General Education Courses",
+	"special-course-recommendations-main-page": "Special:CourseRecommendations",
+	"special-course-recommendations": "Course Recommendations",
+	"special-course-recommendations-main-page-title": "Main Page",
+	"special-course-recommendations-search-placeholder": "Search and checkout recommended courses",
+	"special-course-recommendations-search-button": "Search"
+}
